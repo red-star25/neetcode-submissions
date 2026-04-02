@@ -1,0 +1,34 @@
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        res = []
+
+        for s in tokens:
+            if s == '+':
+                n1 = res.pop()
+                n2 = res.pop()
+                res.append(n1 + n2)
+                print(res)
+            
+            elif s == "-":
+                n1 = res.pop()
+                n2 = res.pop()
+                res.append(n2 - n1)
+                print(res)
+
+            elif s == "*":
+                n1 = res.pop()
+                n2 = res.pop()
+                res.append(n1 * n2)
+                print(res)
+            
+            elif s == "/":
+                n1 = res.pop()
+                n2 = res.pop()
+                res.append(int(float(n2)/n1))
+                print(res)
+            
+            else:
+                res.append(int(s))
+                print(res)
+        
+        return res[0]
